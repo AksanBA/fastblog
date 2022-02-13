@@ -4,16 +4,19 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>The Blog of Brian Akperi</title>
+<title>Performance Measures | The Blog of Brian Akperi</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="The Blog of Brian Akperi" />
+<meta property="og:title" content="Performance Measures" />
 <meta property="og:locale" content="en_US" />
-<link rel="canonical" href="https://bakperi.com/" />
-<meta property="og:url" content="https://bakperi.com/" />
+<meta name="description" content="Real World Data Science - Performance Measures" />
+<meta property="og:description" content="Real World Data Science - Performance Measures" />
+<link rel="canonical" href="https://bakperi.com/2021/06/23/performance-measures.html" />
+<meta property="og:url" content="https://bakperi.com/2021/06/23/performance-measures.html" />
 <meta property="og:site_name" content="The Blog of Brian Akperi" />
-<meta property="og:image" content="https://bakperi.com/images/man_technologist.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-06-23T00:00:00-05:00" />
 <script type="application/ld+json">
-{"url":"https://bakperi.com/","@type":"WebSite","headline":"The Blog of Brian Akperi","image":"https://bakperi.com/images/man_technologist.png","name":"The Blog of Brian Akperi","@context":"https://schema.org"}</script>
+{"url":"https://bakperi.com/2021/06/23/performance-measures.html","@type":"BlogPosting","headline":"Performance Measures","dateModified":"2021-06-23T00:00:00-05:00","datePublished":"2021-06-23T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://bakperi.com/2021/06/23/performance-measures.html"},"description":"Real World Data Science - Performance Measures","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://bakperi.com/feed.xml" title="The Blog of Brian Akperi" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -65,55 +68,38 @@ window.onload = wrap_img;
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><!--- This is a comment --->
-<p>Welcome to my blog! Here you’ll find posts about data science and related content.</p>
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-<!--- This site is built with [fastpages](https://github.com/fastai/fastpages), An easy to use blogging platform with extra features for Jupyter Notebooks. --->
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Performance Measures</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-06-23T00:00:00-05:00" itemprop="datePublished">
+        Jun 23, 2021
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
 
-<!---![](/images/diagram.png "https://github.com/fastai/fastpages")
+    
 
-[fastpages](https://github.com/fastai/fastpages) automates the process of creating blog posts via GitHub Actions, so you don't have to fuss with conversion scripts.  A full list of features can be found on [GitHub](https://github.com/fastai/fastpages).  
+    </header>
 
-You can edit the `index.html` file to change this content.
---->
-<h1 id="posts">Posts</h1>
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Real World Data Science - Performance Measures</p>
 
+<p>The world of academia or Kaggle competitions can be very different when it comes to deciding what makes a good model. Measures such as AUC, precision, recall and F1 score are used to measure the accuracy of classification models, especially those where there is an imbalance of classes in the training set.</p>
 
+<p><img src="assets/img/2021-06-23-performance-measures/media/image1.png" alt="Table Description automatically generated with medium confidence" /><em>Confusion Matrix (<a href="https://en.wikipedia.org/wiki/Confusion_matrix">https://en.wikipedia.org/wiki/Confusion_matrix</a>)</em></p>
 
-  
+<p>One of the best overall metrics for judging the performance of a classification model is the F1 score as it considers both precision and recall equally while handling imbalance better than accuracy. However, there are some instances where precision is more important than recall and vice versa.</p>
 
-  <!-- Hide posts if front matter flag hide:true -->
-  
-  
+<p>Consider the following scenario from a marketing perspective. In a situation where you may be trying to attract new consumers over to your product who haven’t historically purchased your product in the past, then there is some allowance for false positives in a model which determines product purchasers. Even though they might not be a purchaser now, they could become one in the future so it’s still worthwhile to use meaningful campaigns towards them. Whereas with false negatives, the consumers may have purchased historically but because you are now ignoring them from a marketing perspective, you may lose some of that audience.</p>
 
-  <!-- Sort posts by rank, then date -->
-  
-  
-  
+<p>This is why another, potentially more useful metric than F1 score is to use cost matrix gain. That is, what is the financial impact of classifying a data point as a True Postive, True Negative, False Positive, or False Negative?</p>
 
- 
-  
-
-   <!-- Assemble final sorted posts array -->
-  
-  <ul class="post-list"><li><h3>
-    <a class="post-link" href="/2022/02/13/Using-Temporary-Files-In-Python.html">
-    Using Temporary Files In Python
-    </a>
-</h3><p class="post-meta">Feb 13, 2022</p>
-</li><li><h3>
-    <a class="post-link" href="/2021/06/23/performance-measures.html">
-    Performance Measures
-    </a>
-</h3><p class="post-meta">Jun 23, 2021</p>
-</li><li><h3>
-    <a class="post-link" href="/2021/04/11/march-madness-2018.html">
-    March Madness 2018
-    </a>
-</h3><p class="post-meta">Apr 11, 2021</p>
-</li></ul>
-
-    </div>
+  </div><a class="u-url" href="/2021/06/23/performance-measures.html" hidden></a>
+</article>
       </div>
     </main><footer class="site-footer h-card">
   <data class="u-url" href="/"></data>
