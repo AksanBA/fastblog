@@ -1,0 +1,19 @@
+<h1 id="using-temporary-files-in-python">Using Temporary Files in Python</h1>
+
+<p>So in most instances when working on a project, you would have access to read and write from the folders which you are working in? But what if you don’t?
+That’s the dilemma I faced while using a certain data platform where I didn’t have direct access to the underlying folder structure. What to do in this case when you need to write a file then? In particular, I was using matplotlib/plotly to create some visualizations and I needed to put the png/html files somewhere. Temporary files to the rescue!</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">.</span><span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">fd</span><span class="p">,</span> <span class="n">path</span> <span class="o">=</span> <span class="n">tempfile</span><span class="p">.</span><span class="n">mkstemp</span><span class="p">(</span><span class="n">suffix</span><span class="o">=</span><span class="s">'.png'</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+<span class="c1">#Write the info to the temporary file
+</span><span class="n">plt</span><span class="p">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="c1">#Put the temporary file into the required folder
+</span><span class="n">new_folder</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="s">"Image"</span><span class="o">+</span><span class="n">now</span><span class="p">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"%Y-%m-%d"</span><span class="p">)</span><span class="o">+</span><span class="s">".png"</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+<span class="c1">#Remove the temporary file
+</span><span class="n">os</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</code></pre></div></div>
+<p>You can extend this to any file type you want and may prove to be useful whenever you’re dealing with systems where you don’t have direct access to folders but you can read/write to them via an API call. Just replace the pseudocode of new_folder.write() with whatever you need!</p>
